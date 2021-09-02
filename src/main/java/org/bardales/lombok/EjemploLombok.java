@@ -5,13 +5,10 @@ import org.bardales.lombok.bean.Persona;
 
 import java.util.HashSet;
 import java.util.Set;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-//@Log4j2
+@Log4j2
 public class EjemploLombok {
 
-    private static final Logger LOGGER = LogManager.getLogger(EjemploLombok.class);
 
     public static void main(String... args){
 	System.out.println("Hola mundo");
@@ -23,7 +20,7 @@ public class EjemploLombok {
 	int edad = persona.getEdad();
 	System.out.printf("Nombre: %s, Edad: %s\n",nombre, edad);
 	System.out.println(persona);
-	LOGGER.info("Se creo el objeto persona: {}", () -> persona);
+	log.info("Se creo el objeto persona: {}", () -> persona);
 
 	//Lista de personas
 	Set<Persona> personas = new HashSet<>();

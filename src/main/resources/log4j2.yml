@@ -1,0 +1,41 @@
+Configuration:
+  status: warn
+  Properties:
+    Property:
+      - name: log-path
+        value: "logs"
+      - name: log-backup-path
+        value: "logs/archive"
+  Appenders:
+    Console:
+      - name: MyConsole
+        target: SYSTEM_OUT
+        PatternLayout:
+          Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
+    RollingFile:
+      - name: MyFile
+        fileName: ${log-path}/app.log
+        filePattern: "${log-backup-path}/approllingfile.log.%d{yyyyMMddHHmmss}.zip"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
+        Policies:
+          #se crea un archivo backup cuando se exceda
+          # 1KB de tamanio
+          SizeBasedTriggeringPolicy:
+            size: 1KB
+        #Despues de 30 lineas de registro, se ejecutara la trasnferencia
+        #y se creara un archivo de almacenamiento
+        DefaultRollOverStrategy:
+          max: 30
+  Loggers:
+    Root:
+      level: error
+      AppenderRef:
+        - ref: MyConsole
+    logger:
+      - name: org.bardales.lombok
+        level: debug
+        additivity: false
+        AppenderRef:
+          - ref: MyConsole
+          - ref: MyFile
