@@ -1,2 +1,2 @@
-[INFO ] 2021-09-02 17:38:02.205 [main] org.bardales.lombok.EjemploLombok - Se creo el objeto persona: Persona(id=1, nombre=susan, edad=20)
-[INFO ] 2021-09-02 17:40:56.403 [main] org.bardales.lombok.EjemploLombok - Se creo el objeto persona: Persona(id=1, nombre=susan, edad=20)
+[INFO ] 2021-09-03 21:00:54.348 [main] org.bardales.lombok.EjemploLombok - Se creo el objeto persona: Persona(id=1, nombre=susan, edad=20)
+[INFO ] 2021-09-03 21:22:03.667 [main] org.bardales.lombok.EjemploLombok - Se creo el objeto persona: Persona(id=1, nombre=susan, edad=20)
