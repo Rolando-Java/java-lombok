@@ -6,7 +6,7 @@ import org.bardales.lombok.bean.*;
 import java.util.HashSet;
 import java.util.Set;
 
-//esta anotacion instanacia la clase de Log4j2
+//esta anotacion instancia la clase de Log4j2
 @Log4j2
 public class EjemploLombok {
 
@@ -21,7 +21,7 @@ public class EjemploLombok {
         int edad = persona.getEdad();
         System.out.printf("Nombre: %s, Edad: %s\n", nombre, edad);
         System.out.println(persona);
-        log.info("Se creo el objeto persona: {}", () -> persona);
+        log.info("Se creo objeto persona {}", persona);
 
         //Lista de personas
         Set<Persona> personas = new HashSet<>();
@@ -38,16 +38,16 @@ public class EjemploLombok {
 
         //Validando la no nulidad de los campos
         Persona personaCuatro = new Persona(1, "lucas", null);
-        System.out.println("personaCuatro: " + personaCuatro);
+        log.info("Se creo objeto personaCuatro {}", personaCuatro);
 
         //Creacion de objeto Usuario
         Usuario usuario = new Usuario(2, "lucas", 15);
         usuario.setEdad(15);
-        System.out.println(usuario);
+        log.info("Se creo objeto usuario {} ", usuario);
 
         //Creacion de objeto Estudiante
         Estudiante estudiante = new Estudiante(1, "Leo", 2D);
-        System.out.println(estudiante);
+        log.info("Se creo objeto estudiante {}", estudiante);
 
         estudiante.setNota(18.5);
         double nota = estudiante.getNota();
@@ -59,7 +59,7 @@ public class EjemploLombok {
         estudianteList.add(new Estudiante(2, "Miguel", 14.5));
         estudianteList.add(new Estudiante(3, "Javier", 16.5));
         estudianteList.add(new Estudiante(3, "Javier", 16.5));
-        estudianteList.forEach(System.out::println);
+        log.info("Se creo lista estudiante {}", estudianteList);
 
         //Creando objetos Aula con el patron Builder de lombok
         Aula aula = Aula.builder().colegio("Santarder").seccion("SecionA")
@@ -67,12 +67,13 @@ public class EjemploLombok {
                 .estudiante(new Estudiante(2, "Mateo", 17.5))
                 .build();
         System.out.println("seccion: " + aula.getSeccion());
-        System.out.println("aula = " + aula);
+        log.info("Se creo aula {}", aula);
 
         Aula aulaDos = Aula.builder().colegio("SAnMiguel").seccion("SecionB")
                 .estudianteList(estudianteList)
                 .build();
         System.out.println("aulaDos = " + aulaDos);
+        log.info("Se creo aulados {}", aulaDos);
 
     }
 

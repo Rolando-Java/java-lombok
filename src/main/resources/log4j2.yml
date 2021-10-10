@@ -1,41 +1,43 @@
-Configuration:
+configuration:
   status: warn
-  Properties:
-    Property:
+  properties:
+    property:
       - name: log-path
         value: "logs"
       - name: log-backup-path
         value: "logs/archive"
-  Appenders:
-    Console:
+  appenders:
+    console:
       - name: MyConsole
         target: SYSTEM_OUT
-        PatternLayout:
-          Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
-    RollingFile:
+        patternLayout:
+          disableAnsi: false #si es false, habilita generar codigo de escape ANSI
+          pattern: "%highlight{[%-5level]}{DEBUG=green bold, INFO=blue, WARN=yellow, ERROR=red, FATAL=red} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
+    rollingFile:
       - name: MyFile
         fileName: ${log-path}/app.log
         filePattern: "${log-backup-path}/approllingfile.log.%d{yyyyMMddHHmmss}.zip"
-        PatternLayout:
-          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
-        Policies:
+        patternLayout:
+          disableAnsi: false
+          pattern: "%highlight{[%-5level]}{DEBUG=green bold, INFO=blue, WARN=yellow, ERROR=red, FATAL=red} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c - %msg%n"
+        policies:
           #se crea un archivo backup cuando se exceda
           # 1KB de tamanio
-          SizeBasedTriggeringPolicy:
+          sizeBasedTriggeringPolicy:
             size: 1KB
         #Despues de 30 lineas de registro, se ejecutara la trasnferencia
         #y se creara un archivo de almacenamiento
-        DefaultRollOverStrategy:
+        defaultRollOverStrategy:
           max: 30
-  Loggers:
-    Root:
+  loggers:
+    root:
       level: error
-      AppenderRef:
+      appenderRef:
         - ref: MyConsole
     logger:
       - name: org.bardales.lombok
         level: debug
         additivity: false
-        AppenderRef:
+        appenderRef:
           - ref: MyConsole
           - ref: MyFile
