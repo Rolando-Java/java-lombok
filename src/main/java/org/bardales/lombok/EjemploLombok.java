@@ -75,6 +75,23 @@ public class EjemploLombok {
         System.out.println("aulaDos = " + aulaDos);
         log.info("Se creo aulados {}", aulaDos);
 
+        //Creación de objeto Auto
+        Auto auto = Auto.of();
+        auto.setMarca("Toyota");
+        auto.setNumRuedas(4);
+        auto.setVelocidad(50.45);
+        log.info("Se creo auto {}", auto);
+
+        //Creación de segundo objeto Auto
+        Auto autoDos = Auto.of("Copeable", 6, 30.5);
+        log.info("Se creo autodos {}", autoDos);
+
+        //Creación de objeto Perro
+        Perro perro = Perro.of("rufuz", "dalmata");
+        perro.setEdad(3);
+        log.info("Se creo perro {}", perro);
+
+
     }
 
 }

@@ -33,6 +33,7 @@ public class Persona implements Serializable {
     private String nombre;
 
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Integer edad;
 
 }

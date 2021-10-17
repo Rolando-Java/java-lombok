@@ -11,7 +11,9 @@ import java.io.Serializable;
 /*
 Sin embargo, el @RequiredArgsCinstructor solo se
 aplicara siempre y cuando no exista otro constructor
-en esta clase
+en esta clase. Es decir, que si además de @Data también
+colocaste @NoArgsConstructor, entonces el @RequiredArgsConstructor
+de @Data no se aplicaría
  */
 @Data
 public class Estudiante implements Serializable {

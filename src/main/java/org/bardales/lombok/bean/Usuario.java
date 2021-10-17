@@ -8,7 +8,7 @@ import java.io.Serializable;
 @ToString
 /*esta anotacion genera un constructor de
 todos los atributos final y atributos
-declarados como nonNull*/
+declarados como @NonNull*/
 @RequiredArgsConstructor
 public class Usuario implements Serializable {
 

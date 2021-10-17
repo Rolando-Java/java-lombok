@@ -14,6 +14,7 @@ public class Aula implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
     private final String colegio;
     private final String seccion;
     @Singular(value = "estudiante")
