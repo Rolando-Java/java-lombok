@@ -1,4 +1,4 @@
-package org.bardales.lombok.bean;
+package org.bardales.lombok.paquete.bean;
 
 import java.io.Serial;
 import java.io.Serializable;

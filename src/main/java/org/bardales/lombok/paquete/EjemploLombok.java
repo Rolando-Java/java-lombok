@@ -1,7 +1,7 @@
-package org.bardales.lombok;
+package org.bardales.lombok.paquete;
 
 import lombok.extern.log4j.Log4j2;
-import org.bardales.lombok.bean.*;
+import org.bardales.lombok.paquete.bean.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -91,6 +91,9 @@ public class EjemploLombok {
         perro.setEdad(3);
         log.info("Se creo perro {}", perro);
 
+        //lombok en enums
+        Constantes.Color colorAzul = Constantes.Color.AZUL;
+        log.info("color {}", colorAzul.getValue());
 
     }
 
