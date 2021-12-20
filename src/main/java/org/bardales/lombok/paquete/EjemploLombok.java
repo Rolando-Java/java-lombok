@@ -70,8 +70,10 @@ public class EjemploLombok {
         LOG.info("Se creo aula {}", aula);
 
         Aula aulaDos = Aula.builder().colegio("SAnMiguel").seccion("SecionB")
+                .aforo(14)
                 .estudianteList(estudianteList)
                 .build();
+        System.out.println(aulaDos.getEstudianteList().size());
         System.out.println("aulaDos = " + aulaDos);
         LOG.info("Se creo aulados {}", aulaDos);
 
