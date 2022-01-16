@@ -1,9 +1,14 @@
 package org.bardales.lombok.paquete.bean;
 
-import lombok.*;
-
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 
 /*esta anotacion genera el getter de todos los
 atributos de clase*/

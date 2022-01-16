@@ -1,9 +1,10 @@
 package org.bardales.lombok.paquete.bean;
 
-import lombok.*;
-
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
 Haciendo uso de los constructores staticos en lombok

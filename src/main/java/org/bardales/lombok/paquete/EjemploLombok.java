@@ -1,10 +1,15 @@
 package org.bardales.lombok.paquete;
 
-import lombok.extern.log4j.Log4j2;
-import org.bardales.lombok.paquete.bean.*;
-
 import java.util.HashSet;
 import java.util.Set;
+import lombok.extern.log4j.Log4j2;
+import org.bardales.lombok.paquete.bean.Aula;
+import org.bardales.lombok.paquete.bean.Auto;
+import org.bardales.lombok.paquete.bean.Constantes;
+import org.bardales.lombok.paquete.bean.Estudiante;
+import org.bardales.lombok.paquete.bean.Perro;
+import org.bardales.lombok.paquete.bean.Persona;
+import org.bardales.lombok.paquete.bean.Usuario;
 
 //esta anotacion instancia la clase de Log4j2
 @Log4j2
@@ -64,15 +69,12 @@ public class EjemploLombok {
         //Creando objetos Aula con el patron Builder de lombok
         Aula aula = Aula.builder().colegio("Santarder").seccion("SecionA")
                 .estudiante(new Estudiante(1, "Lucas", 18.0))
-                .estudiante(new Estudiante(2, "Mateo", 17.5))
-                .build();
+                .estudiante(new Estudiante(2, "Mateo", 17.5)).build();
         System.out.println("seccion: " + aula.getSeccion());
         LOG.info("Se creo aula {}", aula);
 
-        Aula aulaDos = Aula.builder().colegio("SAnMiguel").seccion("SecionB")
-                .aforo(14)
-                .estudianteList(estudianteList)
-                .build();
+        Aula aulaDos = Aula.builder().colegio("SAnMiguel").seccion("SecionB").aforo(14)
+                .estudianteList(estudianteList).build();
         System.out.println(aulaDos.getEstudianteList().size());
         System.out.println("aulaDos = " + aulaDos);
         LOG.info("Se creo aulados {}", aulaDos);

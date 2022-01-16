@@ -1,8 +1,11 @@
 package org.bardales.lombok.paquete.bean;
 
-import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @ToString

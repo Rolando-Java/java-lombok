@@ -1,9 +1,9 @@
 package org.bardales.lombok.paquete.bean;
 
-import lombok.*;
-
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.NonNull;
 
 //esta anotacion reune las caracteristicas
 //de la antacion @ToString, @Getter, @Setter

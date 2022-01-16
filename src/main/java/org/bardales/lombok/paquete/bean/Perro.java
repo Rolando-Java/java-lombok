@@ -1,9 +1,8 @@
 package org.bardales.lombok.paquete.bean;
 
-import lombok.Data;
-
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.Data;
 
 /*
 Haciendo uso del constructor statico con @Data en lombok

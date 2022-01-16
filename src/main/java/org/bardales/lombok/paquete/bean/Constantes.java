@@ -9,9 +9,7 @@ public class Constantes {
     @RequiredArgsConstructor
     @Getter
     public enum Color {
-        AZUL("azul"),
-        VERDE("verde"),
-        ROJO("rojo");
+        AZUL("azul"), VERDE("verde"), ROJO("rojo");
 
         private final String value;
     }

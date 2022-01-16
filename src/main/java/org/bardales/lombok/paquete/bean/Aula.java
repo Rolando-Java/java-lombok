@@ -15,9 +15,6 @@ public class Aula implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private String colegio;
-    private String seccion;
     /*
     La anotacion declara el campo y lo inicializa con 12. Como resultado
     , si no se proporciona ningun valor para aforo durante la fase de build,
@@ -25,6 +22,8 @@ public class Aula implements Serializable {
      */
     @Builder.Default
     private final Integer aforo = 12;
+    private String colegio;
+    private String seccion;
     /*
      La anotacion permite agregar un tipo Estudiante a las lista, al hacer
      uso del patron builder. Ademas, gracias a esta anotacion, es que si quieres
