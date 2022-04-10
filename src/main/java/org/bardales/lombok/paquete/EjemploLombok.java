@@ -7,6 +7,7 @@ import org.bardales.lombok.paquete.bean.Aula;
 import org.bardales.lombok.paquete.bean.Auto;
 import org.bardales.lombok.paquete.bean.Constantes;
 import org.bardales.lombok.paquete.bean.Estudiante;
+import org.bardales.lombok.paquete.bean.ModificadorAcceso;
 import org.bardales.lombok.paquete.bean.Perro;
 import org.bardales.lombok.paquete.bean.Persona;
 import org.bardales.lombok.paquete.bean.Usuario;
@@ -99,6 +100,9 @@ public class EjemploLombok {
         Constantes.Color colorAzul = Constantes.Color.AZUL;
         LOG.info("color {}", colorAzul.getValue());
 
+        //lombok en modificadores de acceso
+        ModificadorAcceso modificadorAcceso = new ModificadorAcceso("susan", 12);
+        LOG.info("modificadorAcceso {}", modificadorAcceso);
     }
 
 }
