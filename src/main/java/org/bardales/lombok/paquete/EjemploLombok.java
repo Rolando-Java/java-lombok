@@ -3,11 +3,13 @@ package org.bardales.lombok.paquete;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.extern.log4j.Log4j2;
+import org.bardales.lombok.paquete.bean.Animal;
 import org.bardales.lombok.paquete.bean.Aula;
 import org.bardales.lombok.paquete.bean.Auto;
 import org.bardales.lombok.paquete.bean.Constantes;
 import org.bardales.lombok.paquete.bean.Estudiante;
 import org.bardales.lombok.paquete.bean.ModificadorAcceso;
+import org.bardales.lombok.paquete.bean.Mono;
 import org.bardales.lombok.paquete.bean.Perro;
 import org.bardales.lombok.paquete.bean.Persona;
 import org.bardales.lombok.paquete.bean.Usuario;
@@ -27,7 +29,7 @@ public class EjemploLombok {
         int edad = persona.getEdad();
         System.out.printf("Nombre: %s, Edad: %s\n", nombre, edad);
         System.out.println(persona);
-        LOG.info("Se creo objeto persona {}", persona);
+        LOG.info("Se creo objeto persona {}", () -> persona);
 
         //Lista de personas
         Set<Persona> personas = new HashSet<>();
@@ -44,16 +46,16 @@ public class EjemploLombok {
 
         //Validando la no nulidad de los campos
         Persona personaCuatro = new Persona(1, "lucas", null);
-        LOG.info("Se creo objeto personaCuatro {}", personaCuatro);
+        LOG.info("Se creo objeto personaCuatro {}", () -> personaCuatro);
 
         //Creacion de objeto Usuario
         Usuario usuario = new Usuario(2, "lucas", 15);
         usuario.setEdad(15);
-        LOG.info("Se creo objeto usuario {} ", usuario);
+        LOG.info("Se creo objeto usuario {} ", () -> usuario);
 
         //Creacion de objeto Estudiante
         Estudiante estudiante = new Estudiante(1, "Leo", 2D);
-        LOG.info("Se creo objeto estudiante {}", estudiante);
+        LOG.info("Se creo objeto estudiante {}", () -> estudiante);
 
         estudiante.setNota(18.5);
         double nota = estudiante.getNota();
@@ -65,44 +67,73 @@ public class EjemploLombok {
         estudianteList.add(new Estudiante(2, "Miguel", 14.5));
         estudianteList.add(new Estudiante(3, "Javier", 16.5));
         estudianteList.add(new Estudiante(3, "Javier", 16.5));
-        LOG.info("Se creo lista estudiante {}", estudianteList);
+        LOG.info("Se creo lista estudiante {}", () -> estudianteList);
 
         //Creando objetos Aula con el patron Builder de lombok
         Aula aula = Aula.builder().colegio("Santarder").seccion("SecionA")
                 .estudiante(new Estudiante(1, "Lucas", 18.0))
                 .estudiante(new Estudiante(2, "Mateo", 17.5)).build();
         System.out.println("seccion: " + aula.getSeccion());
-        LOG.info("Se creo aula {}", aula);
+        LOG.info("Se creo aula {}", () -> aula);
 
         Aula aulaDos = Aula.builder().colegio("SAnMiguel").seccion("SecionB").aforo(14)
                 .estudianteList(estudianteList).build();
         System.out.println(aulaDos.getEstudianteList().size());
         System.out.println("aulaDos = " + aulaDos);
-        LOG.info("Se creo aulados {}", aulaDos);
+        LOG.info("Se creo aulados {}", () -> aulaDos);
 
         //Creación de objeto Auto
         Auto auto = Auto.of();
         auto.setMarca("Toyota");
         auto.setNumRuedas(4);
         auto.setVelocidad(50.45);
-        LOG.info("Se creo auto {}", auto);
+        LOG.info("Se creo auto {}", () -> auto);
 
         //Creación de segundo objeto Auto
         Auto autoDos = Auto.of("Copeable", 6, 30.5);
-        LOG.info("Se creo autodos {}", autoDos);
+        LOG.info("Se creo autodos {}", () -> autoDos);
 
         //Creación de objeto Perro
         Perro perro = Perro.of("rufuz", "dalmata");
         perro.setEdad(3);
-        LOG.info("Se creo perro {}", perro);
+        LOG.info("Se creo perro {}", () -> perro);
 
         //lombok en enums
         Constantes.Color colorAzul = Constantes.Color.AZUL;
-        LOG.info("color {}", colorAzul.getValue());
+        LOG.info("color {}", () -> colorAzul.getValue());
 
         //lombok en modificadores de acceso
         ModificadorAcceso modificadorAcceso = new ModificadorAcceso("susan", 12);
-        LOG.info("modificadorAcceso {}", modificadorAcceso);
+        LOG.info("modificadorAcceso {}", () -> modificadorAcceso);
+
+        // lombok con Builder en herencia de clases
+        Animal animal = Animal.builder()
+                .nombre("mono")
+                .especie("terrestre")
+                .alimentacion("herbivoro")
+                .build();
+        LOG.info("animal {}", () -> animal);
+
+        Mono mono = Mono.builder()
+                .nombre("mono")
+                .especie("terrestre")
+                .alimentacion("herbivoro")
+                .tanCola("123")
+                .colorPelo("marron")
+                .build();
+        LOG.info("mono : {}", () -> mono);
+
+        Mono monoDos = Mono.builder()
+                .nombre("mono2")
+                .especie("terrestre")
+                .alimentacion("herbivoro")
+                .tanCola("123")
+                .colorPelo("marron")
+                .build();
+        LOG.info("monoDos : {}", () -> monoDos);
+
+        assert mono.equals(monoDos) == false;
+
     }
 
 }
